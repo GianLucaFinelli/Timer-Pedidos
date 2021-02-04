@@ -1,4 +1,5 @@
 import React from "react";
+import {SeleccionarCaja} from './HorariosHelper.js';
 
 export default function Horario({
   horario,
@@ -8,37 +9,7 @@ export default function Horario({
   setCajas,
 }) {
   var Seleccionar = () => {
-    var HorariosConfirmados;
-    if (cajas > 0) {
-      HorariosConfirmados = horarios.map((h) => {
-        if (h.id == horario.id) {
-          h.activo = horario.activo ? false : true;
-          if (cajas != 0) {
-            if (h.activo) {
-              cajas--;
-              setCajas(cajas);
-            } else {
-              cajas++;
-              setCajas(cajas);
-            }
-          }
-        }
-        return h;
-      });
-    } else if (cajas == 0) {
-      HorariosConfirmados = horarios.map((h) => {
-        if (h.id == horario.id) {
-          if (h.activo) {
-            cajas++;
-            setCajas(cajas);
-            h.activo = false;
-          }
-        }
-        return h;
-      });
-    }
-    var HorariosConfirmados = horarios;
-    setHorarios(HorariosConfirmados);
+    return SeleccionarCaja(horario,horarios,setHorarios,cajas,setCajas);
   };
 
   return (
