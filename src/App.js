@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Horarios from "./horarios/Horarios";
 
-function App() {
+// import Caja from "./components/caja/Caja";
+import CajaDeHorarios from "./components/horario/CajaDeHorarios";
+
+export default function App() {
+  const [cajas, setCajas] = useState(8);
+  const [horarios, setHorarios] = useState(Horarios(25, 8,0));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="d-flex flex-row justify-content-center">
+      <div className="col-sm-12 col-md-10">
+        <div className="caja-de-horarios">
+          <CajaDeHorarios
+            horarios={horarios}
+            setHorarios={setHorarios}
+            cajas={cajas}
+            setCajas={setCajas}
+          ></CajaDeHorarios>
+        </div>
+      </div>
+      <div className="col-sm-12 col-md-2 mt-2 ml-0 pl-0">
+        <div className="cantidad-cajas">
+          <div className="cantidad-cajas--titulo">Cantidad de cajas:</div>
+          <span className="cantidad-cajas--items">{cajas}</span>
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;
