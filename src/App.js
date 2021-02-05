@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <div className="d-flex flex-row justify-content-center">
-      <div className="col-sm-12 col-md-10 vh-100 bg-grey">
+      <div className="col-sm-12 col-md-9 vh-100 bg-grey">
         <div className="caja-de-horarios">
           <CajaDeHorarios
             horarios={horarios}
@@ -20,7 +20,7 @@ export default function App() {
           ></CajaDeHorarios>
         </div>
       </div>
-      <div className="col-sm-12 col-md-2 ml-0 pl-0 vh-100 bg-secondary">
+      <div className="col-sm-12 col-md-3 ml-0 pl-0 vh-100 bg-secondary">
         <div className="cantidad-cajas">
           <div className="cantidad-cajas--titulo">Cantidad de cajas:</div>
           <span className="cantidad-cajas--items">{cajas}</span>

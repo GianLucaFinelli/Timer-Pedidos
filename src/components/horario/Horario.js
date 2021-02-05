@@ -1,5 +1,5 @@
 import React from "react";
-import {SeleccionarCaja} from './HorariosHelper.js';
+import { SeleccionarCaja } from "./HorariosHelper.js";
 
 export default function Horario({
   horario,
@@ -9,31 +9,24 @@ export default function Horario({
   setCajas,
 }) {
   var Seleccionar = () => {
-    return SeleccionarCaja(horario,horarios,setHorarios,cajas,setCajas);
+    return SeleccionarCaja(horario, horarios, setHorarios, cajas, setCajas);
   };
 
   return (
     <div className="horario" id={horario.id}>
-        <div className="horario__elemento-contenedor">
-          <span className="mr-2">Horario:</span>
-          {horario.hora}
-        </div>
-        <div className="horario__elemento-contenedor">
-          <span className="mr-2">Ocupado:</span>
-          <span>{horario.activo ? "Si" : "No"}</span>
-        </div>
-      <div className="horario__elemento-contenedor mt-2">
-        <button
-          className={
-            !horario.activo
-              ? "btn btn-outline-success mr-2 w-100"
-              : "btn btn-outline-danger mr-2 w-100"
-          }
-          onClick={Seleccionar}
-        >
-          {!horario.activo ? "Seleccionar" : "Quitar"}
+      <span className="horario-titulo text-dark">
+        <i class="bi bi-stopwatch-fill mr-2"></i>
+        {horario.hora}
+      </span>
+      {!horario.activo ? (
+        <button className="btn--horario text-success" onClick={Seleccionar}>
+          <i className="bi bi-box-arrow-in-right"></i> Seleccionar
         </button>
-      </div>
+      ) : (
+        <button className="btn--horario text-danger" onClick={Seleccionar}>
+          <i className="bi bi-box-arrow-left"></i> Quitar
+        </button>
+      )}
     </div>
   );
 }

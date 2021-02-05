@@ -18,6 +18,11 @@
   }
 }
 
+.btn:hover .bi{
+  color: white !important;
+  transition: 0.4s all;
+}
+
 .caja-de-horarios{
   display: flex;
   justify-content: center;
@@ -26,19 +31,24 @@
 
 .horario{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
-  width: 200px;
+  align-items: center;
+  width: 250px;
   padding: 10px;
   background-color: rgb(240, 240, 240);
   border-radius: 5px;
   margin: 10px 8px;
+  box-shadow: 2px 3px 15px rgb(201, 201, 201);
 }
 
-.horario__elemento-contenedor{
+.horario-titulo{
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 .cantidad-cajas{
@@ -64,4 +74,9 @@
   font-size: 39px;
   align-self: flex-end;
   line-height: 40px;
+}
+
+.btn--horario{
+  border: none;
+  width: 150px;
 }
